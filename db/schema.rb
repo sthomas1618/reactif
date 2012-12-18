@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218020010) do
+ActiveRecord::Schema.define(:version => 20121218025119) do
 
   create_table "reactions", :force => true do |t|
     t.string   "title"
@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(:version => 20121218020010) do
     t.integer  "gif_file_size"
     t.datetime "gif_updated_at"
     t.string   "gif_fingerprint"
+    t.string   "short_url"
   end
 
+  add_index "reactions", ["short_url"], :name => "index_reactions_on_short_url"
   add_index "reactions", ["user_id"], :name => "index_reactions_on_user_id"
 
   create_table "users", :force => true do |t|

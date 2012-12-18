@@ -5,7 +5,7 @@ class ReactionsController < ApplicationController
   end
 
   def create
-    @reaction = Reaction.new(params[:reaction])
+    @reaction = current_user.reactions.build(params[:reaction])
     if (@reaction.save)
       flash[:success] = "Created a Reaction"
       redirect_to root_path

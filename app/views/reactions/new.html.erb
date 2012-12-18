@@ -1,0 +1,11 @@
+<% provide(:title, 'Upload Reaction') %>
+<h1>Upload Reaction</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@reaction, html: { :multipart => true }) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Upload", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

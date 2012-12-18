@@ -1,0 +1,10 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.file_field :gif, class: "hide ie_show" %>
+<div class="input-append ie_hide">
+  <input id="pretty-input" class="input-large" type="text" onclick="$('input[id=reaction_gif]').click();">
+  <a class="btn" onclick="$('input[id=reaction_gif]').click();">Browse</a>
+</div>

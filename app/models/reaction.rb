@@ -14,10 +14,18 @@
 #  gif_file_size    :integer
 #  gif_updated_at   :datetime
 #  gif_fingerprint  :string(255)
+#  short_url        :string(255)
 #
 
 class Reaction < ActiveRecord::Base
   attr_accessible :title, :context, :gif
+
+  belongs_to :user
+
+  after_create { |reaction|
+    reaction.short_url = reaction.id.to_s(36)
+    reaction.save
+  }
 
   has_attached_file :gif, :styles => {
                             large: "400x400>",
