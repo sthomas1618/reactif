@@ -1,0 +1,6 @@
+<% provide(:title, @reaction.title) %>
+<h1><%= @reaction.title %></h1>
+<section class="center">
+  <h2>Uploaded by <%= @reaction.user.username %> </h2>
+  <%= image_tag @reaction.gif.url, class: "img-polaroid center" %>
+</section>

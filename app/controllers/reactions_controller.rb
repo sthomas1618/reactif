@@ -13,4 +13,10 @@ class ReactionsController < ApplicationController
       render 'new'
     end
   end
+
+  def show
+    @reaction = Reaction.find(params[:id])
+    @reaction.increment(:view_count)
+    @reaction.save
+  end
 end
