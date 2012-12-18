@@ -27,18 +27,27 @@ class ReactionsController < ApplicationController
   SEND_FILE_METHOD = :default
 
   def serve
-    head(:not_found) and return if (reaction = Reaction.find_by_short_url(params[:id])).nil?
+    head(:not_found) and return if (@reaction = Reaction.find_by_short_url(params[:id])).nil?
+    render :layout => false
 
-    path = reaction.gif.url
+    #path = reaction.gif.url
     #head(:bad_request) and return unless File.exist?(path)
 
-    send_file_options = { disposition: 'inline', type: "image/gif" }
+    # send_file_options = { disposition: 'inline', type: "image/gif" }
 
-    case SEND_FILE_METHOD
-      when :apache then send_file_options[:x_sendfile] = true
-      when :nginx then head(x_accel_redirect: path.gsub(Rails.root, ''), content_type: send_file_options[:type]) and return
-    end
+    # case SEND_FILE_METHOD
+    #   when :apache then send_file_options[:x_sendfile] = true
+    #   when :nginx then head(x_accel_redirect: path.gsub(Rails.root, ''), content_type: send_file_options[:type]) and return
+    # end
 
-    send_file(path, send_file_options)
+    # open(reaction.gif.url) {|img|
+    #   tmpfile = Tempfile.new("download.jpg")
+    #   File.open(tmpfile.path, 'wb') do |f|
+    #     f.write img.read
+    #   end
+    #   send_file tmpfile.path, send_file_options
+    # }
+
+    # send_file(path, send_file_options)
   end
 end
