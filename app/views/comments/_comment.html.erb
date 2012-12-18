@@ -1,7 +1,7 @@
-<div>
-  <span> <%= comment.user.username %> commented </span>
-  <span class="content"><%= comment.remarks %></span>
-  <span>
+<article class="comment">
+  <span class="user"> <%= comment.user.username %> commented </span>
+  <small class="muted">
     <%= time_ago_in_words(comment.created_at) %> ago.
-  </span>
-</div>
+  </small>
+  <p class="remarks"><%= comment.remarks %></p>
+</article>
