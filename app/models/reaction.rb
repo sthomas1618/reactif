@@ -34,6 +34,7 @@ class Reaction < ActiveRecord::Base
                             thumb: "32x32#" }
 
   validates :title, presence: true, length: { maximum: 250 }
-  validates_attachment :gif, :presence => true,
-    :content_type => { :content_type => "image/gif" }
+  validates_attachment :gif, presence: true,
+    :content_type => { content_type: "image/gif" }
+  validates :gif_fingerprint, uniqueness: true
 end

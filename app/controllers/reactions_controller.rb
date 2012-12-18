@@ -19,4 +19,22 @@ class ReactionsController < ApplicationController
     @reaction.increment(:view_count)
     @reaction.save
   end
+
+  SEND_FILE_METHOD = :default
+
+  def serve
+    head(:not_found) and return if (reaction = Reaction.find_by_short_url(params[:id])).nil?
+
+    path = reaction.gif.path
+    head(:bad_request) and return unless File.exist?(path)
+
+    send_file_options = { disposition: 'inline', type: "image/gif" }
+
+    case SEND_FILE_METHOD
+      when :apache then send_file_options[:x_sendfile] = true
+      when :nginx then head(x_accel_redirect: path.gsub(Rails.root, ''), content_type: send_file_options[:type]) and return
+    end
+
+    send_file(path, send_file_options)
+  end
 end
