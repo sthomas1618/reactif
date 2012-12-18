@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :reactions
+  has_many :comments
 
   before_save { |user|
     user.username = username.downcase

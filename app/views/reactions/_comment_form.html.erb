@@ -1,0 +1,7 @@
+<%= form_for(@comment, url: reaction_comments_path(@reaction)) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div>
+    <%= f.text_area :remarks, placeholder: "New comment..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>

@@ -16,10 +16,12 @@ class ReactionsController < ApplicationController
 
   def show
     @reaction = Reaction.find(params[:id])
-    @reaction.increment(:view_count)
+    @reaction.increment(:views)
     @reaction.save
     @taggings = @reaction.taggings
-    @tag  = @reaction.tags.build
+    @tag      = @reaction.tags.build
+    @comments = @reaction.comments
+    @comment  = Comment.new(reaction_id: @reaction.id)
   end
 
   SEND_FILE_METHOD = :default

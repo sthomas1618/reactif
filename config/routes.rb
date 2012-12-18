@@ -4,6 +4,7 @@ Reactif::Application.routes.draw do
   resources :users,     only: [:new, :create]
   resources :reactions, only: [:new, :create, :show] do
     resources :taggings, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   resources :tags,      only: [:index, :show]
 

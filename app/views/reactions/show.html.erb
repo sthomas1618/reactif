@@ -4,6 +4,16 @@
   <section class="span8 offset2 center">
     <h2>Uploaded by <%= @reaction.user.username %> </h2>
     <%= image_tag @reaction.gif.url, class: "img-polaroid center" %>
+      <div class="row">
+    <section class="span4 offset2 center">
+      <%= render @comments %>
+    </section>
+  </div>
+  <div class="row">
+    <section class="span4 offset2 center">
+      <%= render 'reactions/comment_form' %>
+    </section>
+  </div>
   </section>
   <aside class="span2">
     <section>
