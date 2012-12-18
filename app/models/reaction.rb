@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: reactions
+#
+#  id               :integer          not null, primary key
+#  title            :string(255)
+#  context          :string(255)
+#  views            :integer
+#  user_id          :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  gif_file_name    :string(255)
+#  gif_content_type :string(255)
+#  gif_file_size    :integer
+#  gif_updated_at   :datetime
+#  gif_fingerprint  :string(255)
+#
+
 class Reaction < ActiveRecord::Base
   attr_accessible :title, :context, :gif
 
