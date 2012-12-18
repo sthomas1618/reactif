@@ -1,7 +1,8 @@
 Reactif::Application.routes.draw do
 
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :users,    only: [:new, :create]
+  resources :sessions,  only: [:new, :create, :destroy]
+  resources :users,     only: [:new, :create]
+  resources :reactions, only: [:new, :create]
 
   root to: 'pages#home'
 

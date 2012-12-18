@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215225556) do
+ActiveRecord::Schema.define(:version => 20121218012352) do
+
+  create_table "reactions", :force => true do |t|
+    t.string   "title"
+    t.string   "context"
+    t.integer  "views"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reactions", ["user_id"], :name => "index_reactions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"
