@@ -29,8 +29,8 @@ class ReactionsController < ApplicationController
   def serve
     head(:not_found) and return if (reaction = Reaction.find_by_short_url(params[:id])).nil?
 
-    path = reaction.gif.path
-    head(:bad_request) and return unless File.exist?(path)
+    path = reaction.gif
+    #head(:bad_request) and return unless File.exist?(path)
 
     send_file_options = { disposition: 'inline', type: "image/gif" }
 
