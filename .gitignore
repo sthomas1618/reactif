@@ -19,3 +19,6 @@
 
 # Ignore the reaction images
 /public/system/*
+
+# No Puedo
+.env

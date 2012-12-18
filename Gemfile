@@ -5,7 +5,9 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
+gem 'thin'
+gem "paperclip-dropbox"
 gem 'jquery-rails'
 gem "paperclip", "~> 3.0"
 gem 'annotate', ">=2.5.0"
@@ -37,3 +39,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+
+#rake dropbox:authorize APP_KEY=yt5sdqnmlvue41u APP_SECRET=5sfhmnl8k5xqy6j ACCESS_TYPE=app_folder
