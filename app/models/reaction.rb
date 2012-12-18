@@ -21,6 +21,8 @@ class Reaction < ActiveRecord::Base
   attr_accessible :title, :context, :gif
 
   belongs_to :user
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   after_create { |reaction|
     reaction.short_url = reaction.id.to_s(36)

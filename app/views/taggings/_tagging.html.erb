@@ -1,0 +1,9 @@
+<div>
+  <span class="label label-inverse">
+    <%= link_to tagging.tag.name, tag_path(tagging.tag) %>
+  </span>
+  <% if current_user?(tagging.reaction.user) %>
+    <%= link_to "x", reaction_tagging_path(tagging.reaction_id, tagging.id),
+        method: :delete, class: "close" %>
+  <% end %>
+</div>

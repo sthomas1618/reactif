@@ -18,6 +18,8 @@ class ReactionsController < ApplicationController
     @reaction = Reaction.find(params[:id])
     @reaction.increment(:view_count)
     @reaction.save
+    @taggings = @reaction.taggings
+    @tag  = @reaction.tags.build
   end
 
   SEND_FILE_METHOD = :default
