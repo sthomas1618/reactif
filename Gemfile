@@ -39,5 +39,3 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
-
-#rake dropbox:authorize APP_KEY=yt5sdqnmlvue41u APP_SECRET=5sfhmnl8k5xqy6j ACCESS_TYPE=app_folder
