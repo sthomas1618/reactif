@@ -1,2 +1,8 @@
-
-<%= render 'reactions/feed', reactions: @new_reactions, title: "New" %>
+<div class="row thumbnails">
+  <div class="span3">
+  <%= render 'reactions/feed', reactions: @popular_reactions, title: "Popular" %>
+  </div>
+  <div class="span3">
+    <%= render 'reactions/feed', reactions: @new_reactions, title: "New" %>
+  </div>
+</div>
