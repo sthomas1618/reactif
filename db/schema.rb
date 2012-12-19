@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218092419) do
+ActiveRecord::Schema.define(:version => 20121219074813) do
 
   create_table "comments", :force => true do |t|
     t.string   "remarks"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20121218092419) do
     t.string   "short_url"
   end
 
+  add_index "reactions", ["gif_fingerprint"], :name => "index_reactions_on_gif_fingerprint", :unique => true
   add_index "reactions", ["short_url"], :name => "index_reactions_on_short_url", :unique => true
   add_index "reactions", ["user_id"], :name => "index_reactions_on_user_id"
 
