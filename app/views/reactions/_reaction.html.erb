@@ -1,5 +1,5 @@
 <article class="thumbnail">
-  <span class="title"> <%= reaction.title %> </span>
+  <span class="title"> <%= link_to reaction.title, reaction_path(reaction) %> </span>
   <%= image_tag reaction.gif.url, class: "img-polaroid center" %>
-  <span><small class="muted"> <%= reaction.comments.count %> comments </small></span>
+  <span><small><%= link_to reaction.comments.count.to_s + " comments", reaction_path(reaction) %> </small></span>
 </article>

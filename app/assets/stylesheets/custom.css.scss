@@ -186,3 +186,20 @@ input, textarea, select, .uneditable-input {
     height: 100px;
   }
 }
+
+.reaction_list {
+  .title a {
+    color: $grayDark;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .comments a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
