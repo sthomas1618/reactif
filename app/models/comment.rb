@@ -15,6 +15,7 @@ class Comment < ActiveRecord::Base
   attr_accessible :reaction_id, :remarks
   belongs_to :reaction
   belongs_to :user
+  belongs_to :reacting_with, class_name: "Reaction", foreign_key: "reacting_with_id"
 
   validates :remarks, presence: true
   validates :reaction_id, presence: true

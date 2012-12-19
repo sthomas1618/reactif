@@ -3,5 +3,11 @@
   <small class="muted">
     <%= time_ago_in_words(comment.created_at) %> ago.
   </small>
-  <p class="remarks"><%= comment.remarks %></p>
+  <p class="remarks">
+  <% if comment.reacting_with_id %>
+    <%= image_tag comment.reacting_with.gif.url(:medium), class: "img-polaroid center" %>
+  <% else %>
+    <%= comment.remarks %>
+  <% end %>
+  </p>
 </article>

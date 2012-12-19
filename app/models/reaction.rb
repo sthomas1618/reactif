@@ -24,6 +24,7 @@ class Reaction < ActiveRecord::Base
   has_many :comments
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :reaction_comments, class_name: "Comment", foreign_key: "reacting_with_id"
 
   after_create { |reaction|
     reaction.short_url = reaction.id.to_s(36)

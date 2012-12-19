@@ -20,7 +20,7 @@ class ReactionsController < ApplicationController
     @reaction.save
     @taggings = @reaction.taggings
     @tag      = @reaction.tags.build
-    @comments = @reaction.comments
+    @comments = @reaction.comments.order("created_at asc")
     @comment  = Comment.new(reaction_id: @reaction.id)
   end
 
